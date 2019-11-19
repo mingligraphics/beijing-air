@@ -1,2 +1,2 @@
-# beijing-air
-Beijing Air Pollution -- GIS class final project
+# Beijing Air Pollution -- GIS class final project
+
