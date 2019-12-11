@@ -8,36 +8,7 @@ const _accessToken =
   'pk.eyJ1IjoieGlhb2xlaWFvIiwiYSI6ImNqdzc4YTltNzJic3c0OHFxeWhlZDVodGkifQ.fq-KOXgjoJwsGRBsfqmy6w'
 const _mapStyle = 'mapbox://styles/mapbox/light-v10'
 
-// const detector = d3.select('.detector')
 
-// const numbers = d3.range(4)
-
-// const barChart = detector
-//   .selectAll('.group')
-//   .data(numbers)
-//   .enter()
-//   .append('div')
-//   .attr('class', 'group')
-//   .style('background-color', '#CCCCCC')
-
-// console.log('barchart is', barChart._groups)
-
-// d3.csv(require('../data/BJ_detector_v2.csv'))
-//   .then(ready)
-//   .catch(err => console.log('Failed on', err))
-
-// function ready(datapoints) {
-//   console.log('The data is', datapoints)
-//   const group = detector
-//     .selectAll('.group')
-//     .data(datapoints)
-//     .enter()
-//     .append('div')
-//     .attr('width', 60)
-//     .attr('height', d => d.y15)
-//     .attr('class', 'group')
-//   console.log('The group', group)
-// }
 
 mapboxgl.accessToken = _accessToken
 _map = new mapboxgl.Map({
@@ -76,26 +47,22 @@ function init() {
     const feature = features[0]
     popup = new mapboxgl.Popup()
       .setLngLat(_map.unproject(e.point))
-      .setHTML(
-        // '<img src="' +
-        //   '">' +
-        '<h3>' +
-          feature.properties.place +
-          '</h3><p>' +
-          'Number of Pollution Days: ' +
-          '</p>' +
-          '<li>2015: <b>' +
-          feature.properties.y15 +
-          '</b></li>' +
-          '<li>2016: <b>' +
-          feature.properties.y16 +
-          '</b></li>' +
-          '<li>2017: <b>' +
-          feature.properties.y17 +
-          '</b></li>' +
-          '<li>2018: <b>' +
-          feature.properties.y18
-      )
+      .setHTML(`
+        <h3 style="text-align: center">${feature.properties.place}</h3>
+        <p style="text-align: center">Number of Pollution Days</p>
+        </div>
+        <div style="display: flex; flex-direction: row; align-items: flex-end; justify-content: space-between;">
+          <div style="background: orange; height: ${feature.properties.y15}px; flex-basis: 20%; text-align: center;">${feature.properties.y15}</div>
+          <div style="background: orange; height: ${feature.properties.y16}px; flex-basis: 20%; text-align: center;">${feature.properties.y16}</div>
+          <div style="background: orange; height: ${feature.properties.y17}px; flex-basis: 20%; text-align: center;">${feature.properties.y17}</div>
+          <div style="background: orange; height: ${feature.properties.y18}px; flex-basis: 20%; text-align: center;">${feature.properties.y18}</div>
+        </div>
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+          <div style="flex-basis: 20%; text-align: center;">2015</div>
+          <div style="flex-basis: 20%; text-align: center;">2016</div>
+          <div style="flex-basis: 20%; text-align: center;">2017</div>
+          <div style="flex-basis: 20%; text-align: center;">2018</div>
+        </div>`)
       .addTo(_map)
   })
 
@@ -104,8 +71,6 @@ function init() {
     popup.remove()
   })
 }
-
-// "<h3>HOME SALES INFORMATION</h3>" +
 
 _map.once('style.load', function(e) {
   init()
