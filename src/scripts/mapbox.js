@@ -50,6 +50,7 @@ function init() {
       .setHTML(`
         <h3 style="text-align: center">${feature.properties.place}</h3>
         <p style="text-align: center">Number of Pollution Days</p>
+        <p style="text-align: center">PM2.5 > 100μg/m3</p>
         </div>
         <div style="display: flex; flex-direction: row; align-items: flex-end; justify-content: space-between;">
           <div style="background: orange; height: ${feature.properties.y15}px; flex-basis: 20%; text-align: center;">${feature.properties.y15}</div>
