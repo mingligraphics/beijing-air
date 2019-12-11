@@ -18,16 +18,16 @@ const svg = d3
 const projection = d3.geoMercator()
 
 const radiusScale = d3
-  .scaleLinear()
-  .domain([0, 126])
-  .range([0, 32])
+  .scaleSqrt()
+  .domain([25, 126])
+  .range([0, 40])
 
 // out geoPath needs a PROJECTION variable
 const path = d3.geoPath().projection(projection)
 
 Promise.all([
   d3.json(require('/data/Beijing.json')),
-  d3.csv(require('/data/BJ_detector_v3.csv'))
+  d3.csv(require('/data/region_center_dots.csv'))
 ])
   .then(ready)
   .catch(err => console.log('Failed on', err))
@@ -63,7 +63,7 @@ function ready([json, datapoints]) {
       const coords = projection([d.lon, d.lat])
       return `translate(${coords})`
     })
-    .attr('stroke', '#d7191c')
+    .attr('stroke', 'grey')
     .attr('fill', 'none')
     .attr('class', 'y15')
     // .attr('fill', d => colorScale(d.PrimSource))
@@ -80,7 +80,7 @@ function ready([json, datapoints]) {
       const coords = projection([d.lon, d.lat])
       return `translate(${coords})`
     })
-    .attr('stroke', '#2b83ba')
+    .attr('stroke', 'grey')
     .attr('fill', 'none')
     .attr('class', 'y16')
     // .attr('fill', d => colorScale(d.PrimSource))
@@ -97,7 +97,7 @@ function ready([json, datapoints]) {
       const coords = projection([d.lon, d.lat])
       return `translate(${coords})`
     })
-    .attr('stroke', '#fdae61')
+    .attr('stroke', 'grey')
     .attr('fill', 'none')
     .attr('class', 'y17')
     // .attr('fill', d => colorScale(d.PrimSource))
@@ -114,10 +114,10 @@ function ready([json, datapoints]) {
       const coords = projection([d.lon, d.lat])
       return `translate(${coords})`
     })
-    .attr('stroke', '#abdda4')
+    .attr('stroke', '#fc8d59')
+    .attr('stroke-width', 2.5)
     .attr('fill', 'none')
     .attr('class', 'y18')
-    // .attr('fill', d => colorScale(d.PrimSource))
     .attr('opacity', 0)
 
   d3.select('#step15')

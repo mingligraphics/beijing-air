@@ -28,13 +28,13 @@ svg {
 .scrollytelling > .steps,
 .scrollytelling > .chart {
   flex-basis: 20%;
-  flex-shrink: 1;
+  flex-shrink: 0;
   flex-grow: 1;
 }
 
 /* The bigger 'flex-grow' the more space it takes up */
 .scrollytelling > .chart {
-  flex-grow: 8;
+  flex-grow: 3;
   overflow: hidden;
 }
 
@@ -58,12 +58,12 @@ svg {
 }
 
 .scrollytelling .step {
-  max-width: 50rem;
-  margin: auto;
-  margin-bottom: 75vh;
-  padding: 10px;
-  background-color: white;
-  color:white;
+  max-width: 30rem;
+  margin: 0 auto;
+  margin-bottom: 80vh;
+  padding: 30px;
+  background-color: #f6f6f4;
+  color: white;
   pointer-events: auto;
 }
 
@@ -78,17 +78,19 @@ svg {
 }
 
 #step15{
-  background-color:#d7191c
+  background-color:grey
 }
 #step16{
-  background-color:#2b83ba
+  background-color:grey
 }
 #step17{
-  background-color:#fdae61
+  background-color:grey
 }
 #step18{
-  background-color:#abdda4
+  background-color:#fc8d59
 }
+
+
 
 /* This is a weird spacing fix */
 .scrollytelling .steps {

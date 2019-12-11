@@ -153,7 +153,9 @@ function init() {
     }
   });
 
-  _map.on('click', function (e) {
+  var popup = null;
+
+  _map.on('mouseenter', 'markers', function (e) {
     var features = _map.queryRenderedFeatures(e.point, {
       layers: ['markers']
     });
@@ -163,7 +165,12 @@ function init() {
     }
 
     var feature = features[0];
-    var popup = new mapboxgl.Popup().setLngLat(_map.unproject(e.point)).setHTML('<ul>' + '<img src="' + feature.properties.image + '">' + '<li>Sale price: <b>' + feature.properties.AdjustedSa + '</b></li>' + '<li>Address: <b>' + feature.properties.Address + '</b></li>' + '<li>Property type: <b>' + feature.properties.PropType + '</b></li>' + '</ul>').addTo(_map);
+    popup = new mapboxgl.Popup().setLngLat(_map.unproject(e.point)).setHTML('<ul>' + '<img src="' + feature.properties.image + '">' + '<li>Sale price: <b>' + feature.properties.AdjustedSa + '</b></li>' + '<li>Address: <b>' + feature.properties.Address + '</b></li>' + '<li>Property type: <b>' + feature.properties.PropType + '</b></li>' + '</ul>').addTo(_map);
+  });
+
+  _map.on('mouseleave', 'markers', function () {
+    _map.getCanvas().style.cursor = '';
+    popup.remove();
   });
 } // "<h3>HOME SALES INFORMATION</h3>" +
 
