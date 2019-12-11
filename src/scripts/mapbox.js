@@ -1,7 +1,7 @@
 import * as d3 from 'd3'
 
 let _map = null
-const _centerLat = 40.05
+const _centerLat = 40.15
 const _centerLng = 116.42
 const _dataFile = require('/data/detector_dots_v1.geojson')
 const _accessToken =
@@ -44,7 +44,7 @@ _map = new mapboxgl.Map({
   container: 'map',
   style: _mapStyle,
   center: [_centerLng, _centerLat],
-  zoom: 7.9
+  zoom: 7.6
 })
 
 function init() {

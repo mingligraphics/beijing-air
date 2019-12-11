@@ -28485,7 +28485,7 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var _map = null;
-var _centerLat = 40.05;
+var _centerLat = 40.15;
 var _centerLng = 116.42;
 
 var _dataFile = require('/data/detector_dots_v1.geojson');
@@ -28522,7 +28522,7 @@ _map = new mapboxgl.Map({
   container: 'map',
   style: _mapStyle,
   center: [_centerLng, _centerLat],
-  zoom: 7.9
+  zoom: 7.6
 });
 
 function init() {
