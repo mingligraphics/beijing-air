@@ -59,7 +59,7 @@ function init() {
     source: 'markers-source',
     paint: {
       'circle-color': 'orange',
-      'circle-radius': 4.5,
+      'circle-radius': 5,
       'circle-stroke-width': 0
     }
   })
