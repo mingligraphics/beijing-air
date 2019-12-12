@@ -1,4 +1,4 @@
-# Beijing Air Pollution -- GIS class final project
+# Beijing Air Pollution -- updated 12/12/2019
 
 This project aims to answer one quesion: Is Beijing's air quality better?
 
